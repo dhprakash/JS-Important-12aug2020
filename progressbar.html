@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head></head><title></title><style>
+.main{width:100%; height: 100vh;}
+.progress-wrap{width: 500px;  padding-top: 35px;}
+.progressbase{width: 20px; height: 300px; background: #888; border-radius: 10px; position: relative; overflow: hidden;}
+.progressbar{position: absolute; width: 100%; height: 0%; bottom: 0px; background: green; transition: all 0.3s; }
+</style>
+</head>
+<body>
+<div class="main">
+    <div class="formbox">
+        <label>Amount</label>
+        <input type="text" id="amountb" onkeyup="amt()">
+        <label>Intrest %</label>
+        <input type="text" id="int" onkeyup="intf(this)">
+    </div>  
+    <div class="progress-wrap">
+        <div class="amounttop">&nbsp;</div>
+        <div class="progressbase">
+            <div class="progressbar"></div>
+        </div>
+        <div class="amountbot">0</div>
+    </div></div>
+<script>
+var totalamt=document.getElementById("amountb");
+var amttop= document.getElementsByClassName("amounttop");
+var probar=document.getElementsByClassName("progressbar");
+function amt(){
+    e=totalamt.value;
+    amttop[0].innerHTML=e;
+}
+function intf(totalint){
+    f=totalint.value;
+    d=(e/100)*f;
+ probar[0].innerHTML=d;
+ probar[0].style.height=f+"%";
+ console.log(d);
+}
+</script>
+</body>
+</html>

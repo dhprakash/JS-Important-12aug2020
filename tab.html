@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.main{ width: 100%;}
+.tab{ width: 500px; margin: 0 auto;}
+.tab ul{ list-style: none;}
+.tab li{ padding: 5px; border: #000 solid 1px; margin-right: 5px; display: inline-block; cursor: pointer;}
+.tab-content{ width: 100%; font-size: 13px; }
+.tabBox{border: #000 solid 1px; margin: 10px 0; padding: 50px; display: none;}
+.show{display: block;}
+</style>
+</head>
+<body>
+    <div class="main">
+        <div class="tab">
+            <ul>
+                <li class="tabclick">Tab 1</li>
+                <li class="tabclick">Tab 2</li>
+                <li class="tabclick">Tab 3</li>
+            </ul>
+    <div class="tab-content">
+        <div class="tabBox show">Tab 1</div>
+        <div class="tabBox">Tab 2</div>
+        <div class="tabBox">Tab 3</div>
+    </div>
+            </div>
+        </div>
+<script>
+    var tabc = document.getElementsByClassName('tabclick');
+    var tabB = document.getElementsByClassName('tabBox');
+    
+    for(let i=0;i<tabc.length;i++)
+    {
+        tabc[i].addEventListener('click',()=>{
+         
+    for(var j=0;j<tabB.length;j++)
+    tabB[j].classList.remove('show');
+    tabB[i].classList.add('show');  
+            });
+    }
+</script>
+
+</body>
+</html>

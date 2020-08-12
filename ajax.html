@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body{font-family: Arial, Helvetica, sans-serif; font-size:16px;}
+.emp_dd{display: flex; width: 100%; border:1px solid #333;}
+.emp_dd .emp_head{ width: 25%; border: 1px solid #777; font-weight: bold;}
+</style>
+</head>
+<body>  
+<button type="button" onClick="clickme()">Click</button>
+<input type="search" id="serch">
+<div id="demo"></div> 
+   
+<script>
+//  HTTP METHOD   GET,POST,DELETE,PUT,HEAD,OPTION  
+var alldata="";
+function clickme(){
+var sudesh=new XMLHttpRequest();
+
+sudesh.open("GET","http://dummy.restapiexample.com/api/v1/employees",true);
+
+sudesh.send();
+
+sudesh.onreadystatechange=function(){
+    if(this.readyState==4 && this.status==200){
+        var data=this.responseText;
+        var kk=JSON.parse(data);
+        alldata=kk.data;
+        readApi(kk.data);
+}
+}
+var loader = "<img src='30.gif'>";
+document.getElementById("demo").innerHTML=loader;
+}
+
+function readApi(kk)
+{
+    var tableid="<table border='1'>";
+    for(let i=0; i<kk.length; i++){
+       
+        tableid+="<tr>";
+            tableid+="<td>"+kk[i].id+"</td>";
+            tableid+="<td>"+kk[i].employee_name+"</td>";
+            tableid+="<td>"+kk[i].employee_age+"</td>";
+            tableid+="<td>"+kk[i].employee_salary+"</td>";
+            tableid+="</tr>";
+    };
+    tableid+="</table>";
+    document.getElementById("demo").innerHTML=tableid;
+}
+
+
+var srchh=document.getElementById("serch");
+srchh.addEventListener("keyup", ()=>{
+   // console.log("hello");
+    var res=alldata.filter((x)=>{
+        return x.employee_name.toLowerCase().includes(srchh.value.toLowerCase());    
+    });
+   
+    var tableid="<table border='1'>";
+    for(let i=0; i<res.length; i++){
+       
+        tableid+="<tr>";
+            tableid+="<td>"+res[i].id+"</td>";
+            tableid+="<td>"+res[i].employee_name+"</td>";
+            tableid+="<td>"+res[i].employee_age+"</td>";
+            tableid+="<td>"+res[i].employee_salary+"</td>";
+            tableid+="</tr>";
+    }
+    tableid+="</table>";
+    document.getElementById("demo").innerHTML=tableid;
+});
+</script>
+
+</body>
+</html>

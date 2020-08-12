@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+.btn{background: #cfcfcf;padding:10px 5px;border:2px solid #000; font-size: 15px;}
+</style>
+</head>
+<body>
+      
+
+
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+
+        <p></p>
+
+        <button onclick="btn()">Click Sum</button>
+    
+<script>
+
+// function btn(){
+// var m= document.getElementsByTagName("h1");
+// var x= parseInt(m[0].innerHTML)+parseInt(m[1].innerHTML);
+// var para= document.getElementsByTagName("p");
+// para[0].innerHTML =x;
+// }
+
+function btn(){
+ var m= kul("h1");
+ var sum=0;
+ for(let i=0; i<m.length;i++)
+     sum+=parseInt(m[i].innerHTML);
+ var para= kul("p");
+ para[0].innerHTML =sum;
+}
+function kul(str)
+{
+return document.getElementsByTagName(str);
+}
+
+//var d=document.getElementById();
+
+
+// var f= document.getElementsByClassName();
+
+
+// var m= document.getElementsByTagName();
+
+
+
+</script>
+</body>
+</html>

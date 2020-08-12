@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+input, button{outline: none;}
+button{outline: none; background: #ccc; border: none; padding: 3px 10px; cursor: pointer;}
+.btn{background: #cfcfcf;padding:10px 5px;border:2px solid #000; font-size: 15px;}
+.passwordbox{position: relative; width:200px; }
+#passbtn{background:none; border: none; cursor: pointer; position: absolute; right: -5px; top: 1px; transition: all 0.4s}
+#passbtn img{width: 20px;}
+#password{padding: 4px 20% 4px 4px; width: 80%}
+.opacity_down{opacity: 0.5; transition: all 0.4s}
+
+.revstatebox{width: 500px; margin: 20px 0 0}
+
+.revlinebox{width: 500px; margin: 20px 0 0}
+</style>
+</head>
+<body>
+    
+    
+    <div class="revlinebox">
+        <input type="text" name="sleft1" id="sentence_left1" value="">
+        <button id="changebtn_sentence1">Reverse</button>
+        <input type="text" name="sright1" id="sentence_right1" value="">
+    </div>
+<script>
+    // Split() string ko array may convert karta hai
+    // Join() array ko string may convert karta hai
+function revTxt(){
+    var presentTxt1=document.getElementById('sentence_left1').value;
+    var afterChangeTxt1=document.getElementById('sentence_right1');
+    var changeTxt1=presentTxt1.split(' ').reverse().join(' ');
+    afterChangeTxt1.value=changeTxt1;
+}
+document.getElementById('changebtn_sentence1').addEventListener('click', revTxt);
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>.wrapper{ width:100%; float:left;}
+
+.mainDiv{ width:98%; margin:0 auto;}
+
+.menuBox{ width:200px; min-height:250px; background:#ccc; float:left; margin:10px 0 0 0; position:relative;}
+.show_hide{display:none;}
+.close{ position:absolute; right:10px; top:10px;}
+
+.menuicon{ width:24px; height:24px; float:right; margin:10px;}</style>
+<div class="wrapper">
+  <div class="mainDiv">
+  <!--left menu div start-->
+    <div class="menuBox show_hide" id="menu">
+      <div class="close" ><i class="fa fa-close" style="font-size:26px" id="closee"></i></div>
+    </div>
+   <!--left menu div End--> 
+   
+   <!--right menu div start-->
+   <div class="menuicon" onclick="icon()"><i class="fa fa-align-justify" style="font-size:36px;"></i></div>
+   <!--left menu div End-->
+  </div> 
+</div>
+<script>
+var m=document.getElementById('menu');
+	
+function icon(){
+	
+	
+	if(m.classList.contains('show_hide'))
+	{
+	m.classList.remove("show_hide");
+	}
+	else{
+		m.classList.add("show_hide");
+		}
+	}
+	
+	document.getElementById('closee').addEventListener('click',()=>{
+		m.classList.add("show_hide");
+	});
+		
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body{font-family: Arial, Helvetica, sans-serif; font-size:16px;}
+.emp_dd{display: flex; width: 100%; border:1px solid #333;}
+.emp_dd .emp_head{ width: 25%; border: 1px solid #777; font-weight: bold;}
+span{display: inline-block;padding: 5px 10px;
+background:lightgray;
+cursor: pointer;
+margin: 2px;
+}
+</style>
+</head>
+<body>  
+    <button type="button" onClick="clickme()">Click</button>
+        <!-- <input type="search" id="serch"> -->
+        <!-- <button type="button" onclick="show1()">Show</button> -->
+   <div id="demo">
+
+   </div>
+   <div id="pagination">
+
+   </div> 
+   
+<script>
+
+
+
+
+//  HTTP METHOD   GET,POST,DELETE,PUT,HEAD,OPTION  
+var alldata="";
+function clickme(){
+var sudesh=new XMLHttpRequest();
+sudesh.open("GET","http://dummy.restapiexample.com/api/v1/employees",true);
+sudesh.send();
+sudesh.onreadystatechange=function(){
+    if(this.readyState==4 && this.status==200){
+        var data=this.responseText;
+        var kk=JSON.parse(data);
+        alldata=kk.data;
+        readApi(1,kk.data);
+}
+}
+var loader = "<img src='https://media.giphy.com/media/y1ZBcOGOOtlpC/200.gif'>";
+document.getElementById("demo").innerHTML=loader;
+}
+
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
+var offset;
+function readApi(page,dataarray=alldata)
+{
+
+        var limit=20;
+        var count=dataarray.length;
+        var total_page=Math.ceil(count/limit);
+        //console.log(total_page);
+        if(page==0)
+            page=1;
+    if(page<=total_page)
+    {
+    offset=(page-1)*limit;
+    var tableid="<table border='1'>";
+    for(let i=offset; i<offset+limit; i++){
+       try{
+            tableid+="<tr>";
+            tableid+="<td>"+dataarray[i].id+"</td>";
+            tableid+="<td>"+dataarray[i].employee_name+"</td>";
+            tableid+="<td>"+dataarray[i].employee_age+"</td>";
+            tableid+="<td>"+dataarray[i].employee_salary+"</td>";
+            tableid+="</tr>";
+       }
+       catch(err){
+console.log(err);
+       }
+    }
+    tableid+="</table>";
+    document.getElementById("demo").innerHTML=tableid;
+    var span="";
+    span+="<button onclick='readApi("+(page-1)+")'>pre</button>";
+
+    for(let i=page;i<=page+5 && page<=total_page;i++)
+        span+="<span onclick='readApi("+i+")'>"+i+"</span>";
+
+    span+="<button onclick='readApi("+(page+1)+")'>next</button>";   
+     document.getElementById("pagination").innerHTML=span;
+    }
+}
+
+
+
+/*
+var srchh=document.getElementById("serch");
+srchh.addEventListener("keyup", ()=>{
+   // console.log("hello");
+    var res=alldata.filter((x)=>{
+        return x.employee_name.toLowerCase().includes(srchh.value.toLowerCase());
+      
+        
+    });
+   
+    var tableid="<table border='1'>";
+    for(let i=0; i<res.length; i++){
+       
+        tableid+="<tr>";
+            tableid+="<td>"+res[i].id+"</td>";
+            tableid+="<td>"+res[i].employee_name+"</td>";
+            tableid+="<td>"+res[i].employee_age+"</td>";
+            tableid+="<td>"+res[i].employee_salary+"</td>";
+            tableid+="</tr>";
+    }
+    tableid+="</table>";
+    document.getElementById("demo").innerHTML=tableid;
+    
+   
+});
+
+*/
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

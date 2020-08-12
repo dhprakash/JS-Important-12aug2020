@@ -1,0 +1,36 @@
+<!doctype html><html><head></head><body>
+
+<button type="button" onclick="btn()">Click Me</button>
+
+<table id="demo" border="1"></table>
+
+<script>
+    function btn(){
+var obj = [{"id":"1","employee_name":"Abcd","employee_salary":"123456","employee_age":"100","profile_image":""},
+{"id":"180923","employee_name":"JohnK","employee_salary":"54183","employee_age":"36","profile_image":""},
+{"id":"180925","employee_name":"km-test-3","employee_salary":"123","employee_age":"23","profile_image":""},
+{"id":"180926","employee_name":"6789996","employee_salary":"1267000","employee_age":"78","profile_image":""},
+{"id":"180927","employee_name":"test22gfh","employee_salary":"12990","employee_age":"0","profile_image":""},
+{"id":"180929","employee_name":"test22gf","employee_salary":"0","employee_age":"0","profile_image":""},
+{"id":"180931","employee_name":"","employee_salary":"0","employee_age":"0","profile_image":""},
+{"id":"180933","employee_name":"sfdgsdfgfdsg34t3trgeg","employee_salary":"123","employee_age":"23","profile_image":""},
+{"id":"180934","employee_name":"tesst","employee_salary":"123","employee_age":"23","profile_image":""}];
+var dataID=document.getElementById("demo");
+var abc="";
+for(let i=0; i<obj.length; i++){
+    //console.log(obj[i]);
+    abc+="<tr>";
+    abc+="<td>"+obj[i].id+"</td>";
+    abc+="<td>"+obj[i].employee_name+"</td>";
+    abc+="<td>"+obj[i].employee_salary+"</td>";
+    abc+="<td>"+obj[i].employee_age+"</td>";
+    abc+="</tr>";
+
+    dataID.innerHTML=abc;
+}
+
+
+    }
+</script>
+</body>
+</html>

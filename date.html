@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+
+
+</style>
+</head>
+<body>
+ <input type="text" id="numberday">
+ <select id="ab">
+     <option value="">Select format</option>
+     <option value="0">After</option>
+     <option value="1">Before</option>
+ </select>
+ <div id="demo">
+     <div id="yyyy"></div>
+     <div id="mmmm"></div>
+     <div id="dddd"></div>
+     <div id="hhhh"></div>
+     <div id="mimi"></div>
+     <div id="sec"></div>
+     <div id="milli"></div>
+ </div>
+<script>
+var daynum=document.getElementById('numberday');
+var demo=document.getElementById('demo');
+var ab=document.getElementById('ab');
+
+
+
+
+ab.addEventListener('change',()=>{
+    var dd=new Date();
+if(ab.value==0){
+    var mm=new Date(dd.getTime()+1000*60*60*24*daynum.value);
+    var yyyy=mm.getFullYear();
+    document.getElementById('yyyy').innerHTML='Year = '+yyyy;
+    var mmmm=mm.getMonth();
+    document.getElementById('mmmm').innerHTML='Month = '+mmmm;
+    var dddd=mm.getDate();
+     document.getElementById('dddd').innerHTML='Date = '+dddd;
+    var hhhh=mm.getHours();
+     document.getElementById('hhhh').innerHTML='Hours = '+hhhh;
+     var mimi=mm.getMinutes();
+    document.getElementById('mimi').innerHTML='Minutes = '+mimi;
+    var sec=mm.getSeconds();
+    document.getElementById('sec').innerHTML='Seconds = '+sec;
+    var milli=mm.getMilliseconds();
+    document.getElementById('milli').innerHTML='Milliseconds = '+milli;
+     
+}
+else if(ab.value==1){
+    var mm=new Date(dd.getTime()-1000*60*60*24*daynum.value);
+    var yyyy=mm.getFullYear();
+    document.getElementById('yyyy').innerHTML='Year = '+yyyy;
+    var mmmm=mm.getMonth();
+    document.getElementById('mmmm').innerHTML='Month = '+mmmm;
+    var dddd=mm.getDate();
+     document.getElementById('dddd').innerHTML='Date = '+dddd;
+    var hhhh=mm.getHours();
+     document.getElementById('hhhh').innerHTML='Hours = '+hhhh;
+     var mimi=mm.getMinutes();
+    document.getElementById('mimi').innerHTML='Minutes = '+mimi;
+    var sec=mm.getSeconds();
+    document.getElementById('sec').innerHTML='Seconds = '+sec;
+    var milli=mm.getMilliseconds();
+    document.getElementById('milli').innerHTML='Milliseconds = '+milli;
+     
+}
+    
+    
+})
+
+
+
+
+
+</script>
+   
+<script>
+    // Date ek pre-define object hai javascript ke ander.
+    // 1. Mid-night 1st Jan 1970.
+    // 2. Javascript time ko millisecond may calculate karta hai.
+//     var d=new Date('2021-02-1');
+   
+
+//    console.log(d.getMonth());
+
+//    var d=new Date();
+
+//    console.log(d.getDate());
+//    console.log(d.getMonth());
+//    console.log(d.getFullYear());
+//    console.log(d.getHours(),d.getMinutes(),d.getSeconds());
+//    console.log(d.getTime());
+
+
+
+   
+
+
+//     var m=new Date(d.getTime()+1000*60*60*24*10);
+
+//       console.log(m.getDate());
+//       console.log(m.getHours());
+//       console.log(m.getMinutes());
+
+//  console.log(m.getSeconds());
+
+
+
+///////////////////////// Customize Date function  --- After days /////////////////////////////////////////////
+// koi bhi property object par add kar sakte globaly - prototype
+//  Date.prototype.setDays1=function(days){
+//      return new Date(new Date().getTime()+1000*60*60*24*days);
+//  }
+// var f = new Date();
+// var ma=f.setDays1(20);
+
+// console.log(ma.getDate());
+// console.log(ma.getHours());
+// console.log(ma.getMinutes());
+
+
+///////////////////////////////// Customize Date function  --- Before days //////////////////////////////////
+// Date.prototype.setDays1=function(days){
+//      return new Date(new Date().getTime()-1000*60*60*24*days);
+//  }
+// var f = new Date();
+// var ma=f.setDays1(20);
+// console.log(ma.getDate());
+// console.log(ma.getHours());
+// console.log(ma.getMinutes());
+
+
+
+//////////////////////////  Compare Date /////////////////////////////////////////
+Date.prototype.setDays1=function(days){
+     return new Date(new Date().getTime()+1000*60*60*24*days);
+ }
+var f = new Date();
+var ma=f.setDays1(20);
+console.log(ma.getDate());  //26
+
+
+var d=new Date();
+console.log(d.getDate());  //6
+
+
+if(d>ma){
+    alert("new date big");
+}
+else{
+    alert('current date Big');
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

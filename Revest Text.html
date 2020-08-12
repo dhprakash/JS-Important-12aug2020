@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<p>Welcome World</p>  
+<button onclick="reaverseT()">Reverse Text</button>
+<p id="demo"></p>
+
+
+<script>
+function reaverseT(){
+    var sub="Welcome World";
+    var sm="";
+    for(let i=sub.length-1;i>=0;i--){
+        sm+=sub[i];
+    }
+    document.getElementById("demo").innerHTML=sm;
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

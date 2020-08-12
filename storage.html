@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <form>
+        <p><input type="text" class="a1" placeholder="Enter Name"></p>
+
+        <p><input type="password" class="a1" placeholder="Enter password"></p>
+        <p><input type="text" class="a1" placeholder="Enter Email"></p>
+
+       <p><select id="city" class="a1">
+           <option value="">Select State</option>
+           <option value="state 1"> State 1</option>
+           <option value="state 2"> State 2</option>
+       </select></p>
+
+       <button type="submit">submit</button>
+    </form>
+<script>
+    /*
+document.getElementById('city').addEventListener('change',()=>{
+var arr=document.getElementsByClassName('a1');
+for(let i=0;i<arr.length;i++)
+{
+    localStorage.setItem("key"+i,arr[i].value);
+}
+localStorage.removeItem("key"+1);
+
+window.location.assign("storage.html");
+
+});
+
+
+
+window.onload=function(){
+    var arr=document.getElementsByClassName('a1');
+    for(let i=0;i<arr.length;i++)
+{
+    arr[i].value=localStorage.getItem("key"+i);
+}
+
+
+
+}
+*/
+
+
+
+document.getElementById('city').addEventListener('change',()=>{
+var arr=document.getElementsByClassName('a1');
+for(let i=0;i<arr.length;i++)
+{
+    sessionStorage.setItem("key"+i,arr[i].value);
+}
+sessionStorage.removeItem("key"+1);
+
+window.location.assign("storage.html");
+
+});
+
+
+
+window.onload=function(){
+    var arr=document.getElementsByClassName('a1');
+    for(let i=0;i<arr.length;i++)
+{
+    arr[i].value=sessionStorage.getItem("key"+i);
+}
+
+
+
+}
+</script>
+
+
+<script>
+//   Three type of storage
+
+//1  LocalStorage
+// 2  sessionStorage
+
+//  3  cookie
+
+
+</script>   
+    
+
+
+</body>
+</html>

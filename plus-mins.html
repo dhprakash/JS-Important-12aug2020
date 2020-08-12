@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+<body>
+
+<div class="main">
+<button type="button" id="mins">-</button>
+<input type="text" id="amount" value="1">
+<button type="button" id="plus">+</button>
+</div>
+
+
+<script>
+var plus=document.getElementById("plus");
+var mins=document.getElementById("mins");
+var amount=document.getElementById("amount");
+
+plus.addEventListener("click", ()=>{
+
+    if(amount.value<10){
+        amount.value++;
+        if(amount.value==10){
+            amount.style="border:red solid 1px";
+        }
+    }
+
+});
+
+mins.addEventListener("click", ()=>{
+
+    if(amount.value>=1){
+        amount.style="border:grey solid 1px";
+        amount.value--;
+    }
+    
+})
+
+
+</script>   
+    
+
+
+</body>
+</html>

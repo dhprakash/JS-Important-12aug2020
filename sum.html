@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <h1>30</h1>
+        <h1>20</h1>
+        <p></p>
+        <button onclick="btn()">Click Sum</button>
+<script>
+function btn(){
+
+var m= document.getElementsByTagName("h1");
+
+var sum=0;
+
+for(let i=0; i<m.length;i++)
+
+    sum=sum+parseInt(m[i].innerHTML);
+
+var p= document.getElementsByTagName("p");
+
+p[0].innerHTML =sum;
+}
+</script>
+</body>
+</html>

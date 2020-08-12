@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+.cap{ color:red; font-weight:bold; font-family: 'Saira Stencil One', cursive; text-decoration:line-through; user-select: none;}
+</style>
+
+</head>
+<body>
+
+<span id="captcha" class="cap"></span> 
+<span id="ref">Refresh</span>
+
+
+
+<script>
+
+const load=()=>{
+var arr=[
+'A','B','C','D','E','F','G','H','I','J',
+'a','b','c','d','e','f','g','h','i','j',
+0,1,2,3,4,5,6,7,8,9,
+'@','$','&'
+];
+var capstr="";
+for(let i=0;i<5;i++)
+{
+capstr+=arr[Math.floor(Math.random()*arr.length)];
+
+}
+
+document.getElementById('captcha').innerHTML=capstr;
+
+}
+
+
+
+document.getElementById('ref').addEventListener('click',function()
+{
+load();
+});
+
+
+
+load();
+
+
+</script>
+
+
+</body>
+</html>

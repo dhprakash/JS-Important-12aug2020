@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+input, button{outline: none;}
+button{outline: none; background: #ccc; border: none; padding: 3px 10px; cursor: pointer;}
+.btn{background: #cfcfcf;padding:10px 5px;border:2px solid #000; font-size: 15px;}
+.passwordbox{position: relative; width:200px; }
+#passbtn{background:none; border: none; cursor: pointer; position: absolute; right: -5px; top: 1px; transition: all 0.4s}
+#passbtn img{width: 20px;}
+#password{padding: 4px 20% 4px 4px; width: 80%}
+.opacity_down{opacity: 0.5; transition: all 0.4s}
+
+.revstatebox{width: 500px; margin: 20px 0 0}
+
+.revlinebox{width: 500px; margin: 20px 0 0}
+</style>
+</head>
+<body>
+    <div class="passwordbox">
+        <input type="password" name="password" id="password"> <button id="passbtn"><img src="eye.png"></button>
+    </div>
+
+    <div class="revstatebox">
+        <input type="text" name="valok" id="valok" value="State">
+        <button id="swapbtn">Swap</button>
+        <input type="text" name="valrev" id="valrev" value="Delhi">
+    </div>
+
+    <div class="revlinebox">
+        <input type="text" name="sleft" id="sentence_left" value=" ">
+        <button id="changebtn_sentence">Reverse</button>
+        <input type="text" name="sright" id="sentence_right" value=" ">
+    </div>
+    <div class="revlinebox">
+        <input type="text" name="sleft1" id="sentence_left1" value=" ">
+        <button id="changebtn_sentence1">Reverse</button>
+        <input type="text" name="sright1" id="sentence_right1" value=" ">
+    </div>
+<script>
+function revTxt(){
+    var presentTxt1=document.getElementById('sentence_left1').value;
+    var afterChangeTxt1=document.getElementById('sentence_right1');
+    var changeTxt1=presentTxt1.split('').reverse().join('');
+    afterChangeTxt1.value=changeTxt1;
+}
+document.getElementById('changebtn_sentence1').addEventListener('click', revTxt);
+//////////////////////////////////
+function flipTxt(){
+    var presentTxt=document.getElementById('sentence_left').value;
+    var afterChangeTxt=document.getElementById('sentence_right');
+    var changeTxt=presentTxt.split(' ').reverse().join(' ');
+    afterChangeTxt.value=changeTxt;
+}
+document.getElementById('changebtn_sentence').addEventListener('click', flipTxt);
+//////////////////////////
+var val1=document.getElementById('valok');
+var val2=document.getElementById('valrev');
+document.getElementById('swapbtn').addEventListener('click', ()=>{
+    var val1a=val1.value;
+    var val2a=val2.value;
+    val1.value=val2a;
+    val2.value=val1a;
+})
+///////////////////////////////////////////////////
+var passfield=document.getElementById('password');
+document.getElementById('passbtn').addEventListener('click', ()=>{
+    if(passfield.getAttribute('type')=='password'){
+        passfield.setAttribute('type','text');
+        document.getElementById('passbtn').classList.add('opacity_down');
+    }
+    else{
+        passfield.setAttribute('type','password');
+        document.getElementById('passbtn').classList.remove('opacity_down');
+    }
+})
+
+var e="hello world ram kumar";
+var p= e.split(" ");
+console.log(p);
+</script>
+</body>
+</html>
